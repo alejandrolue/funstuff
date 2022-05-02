@@ -22,6 +22,13 @@ public class TicTacToe {
             board();
             addValue();
             checkWinner();
+            if (!win ) {
+                if (!Objects.equals(turn, "O")) {
+                    System.out.println("It's O turn");
+                } else {
+                    System.out.println("It's X turn");
+                }
+            }
         }
         draw = true;
         board();
@@ -100,13 +107,6 @@ public class TicTacToe {
         System.out.println("+---+---+---+");
         System.out.println("| " + slot[6] + " | " + slot[7] + " | " + slot[8] + " |");
         System.out.println("+---+---+---+");
-        if (!win ) {
-            if (!Objects.equals(turn, "O")) {
-                System.out.println("It's O turn");
-            } else {
-                System.out.println("It's X turn");
-            }
-        }
     }
 
 
