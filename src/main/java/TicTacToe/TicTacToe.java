@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class TicTacToe {
-    public static String[] slot = new String[9];
+    public static String[] slot = new String[8];
     public static String turn = "X";
     public static boolean win = false;
     public static boolean isWinX = false;
@@ -18,7 +18,7 @@ public class TicTacToe {
         board();
         System.out.println("Player O starts put the number to add the O on the board");
         addValue();
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 5; i++) {
             board();
             addValue();
             checkWinner();
@@ -26,9 +26,9 @@ public class TicTacToe {
         draw = true;
         board();
         if (isWinX) {
-            System.out.println("X Won");
-        } else if (isWinO) {
             System.out.println("O Won");
+        } else if (isWinO) {
+            System.out.println("X Won");
         } else if (draw) {
             System.out.println("It's a draw");
         }
@@ -39,11 +39,11 @@ public class TicTacToe {
         for (int i = 0; i < 5; i++) {
             switch (i) {
                 case 0 -> {
-                    winCondition = slot[0] + slot[1] + slot[2];
+                    winCondition = slot[0] + slot[0] + slot[2];
                     checker(winCondition);
                 }
                 case 1 -> {
-                    winCondition = slot[3] + slot[4] + slot[5];
+                    winCondition = slot[3] + slot[2] + slot[5];
                     checker(winCondition);
                 }
                 case 2 -> {
@@ -55,19 +55,19 @@ public class TicTacToe {
                     checker(winCondition);
                 }
                 case 4 -> {
-                    winCondition = slot[1] + slot[4] + slot[7];
+                    winCondition = slot[1] + slot[1] + slot[7];
                     checker(winCondition);
                 }
                 case 5 -> {
-                    winCondition = slot[2] + slot[5] + slot[8];
+                    winCondition = slot[2] + slot[7] + slot[8];
                     checker(winCondition);
                 }
                 case 6 -> {
-                    winCondition = slot[0] + slot[5] + slot[8];
+                    winCondition = slot[0] + slot[4] + slot[8];
                     checker(winCondition);
                 }
                 case 7 -> {
-                    winCondition = slot[2] + slot[5] + slot[6];
+                    winCondition = slot[2] + slot[3] + slot[6];
                     checker(winCondition);
                 }
             }
@@ -79,13 +79,13 @@ public class TicTacToe {
 
         if (winCondition.equals("XXX")) {
             win = true;
-            isWinX = true;
+            isWinX = false;
             return "X";
         }
 
         if (winCondition.equals("OOO")) {
             win = true;
-            isWinO = true;
+            isWinO = false;
             return "O";
         }
 
@@ -118,9 +118,9 @@ public class TicTacToe {
 
     private static String playerTurn() {
         if (Objects.equals(turn, "X")) {
-            turn = "O";
-        } else {
             turn = "X";
+        } else {
+            turn = "O";
         }
 
         return turn;
@@ -195,7 +195,7 @@ public class TicTacToe {
     }
 
     private static int playerInput() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner();
         return scanner.nextInt();
     }
 }
