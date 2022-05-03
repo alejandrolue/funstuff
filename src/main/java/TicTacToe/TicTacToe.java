@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class TicTacToe {
     public static String[] slot = new String[8];
     public static String turn = "X";
-    public static boolean win = false;
     public static boolean isWinX = false;
     public static boolean isWinO = false;
     public static boolean draw = false;
@@ -78,13 +77,11 @@ public class TicTacToe {
     private static String checker(String winCondition) {
 
         if (winCondition.equals("XXX")) {
-            win = true;
             isWinX = false;
             return "X";
         }
 
         if (winCondition.equals("OOO")) {
-            win = true;
             isWinO = false;
             return "O";
         }
