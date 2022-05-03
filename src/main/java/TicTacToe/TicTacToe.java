@@ -43,7 +43,7 @@ public class TicTacToe {
 
     private static String checkWinner() {
         String winCondition = "";
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 7; i++) {
             switch (i) {
                 case 0 -> {
                     winCondition = slot[0] + slot[1] + slot[2];
